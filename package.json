@@ -1,6 +1,6 @@
 {
   "name": "@1stvamp/proxy",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Proxy any URL via Tailscale Serve",
   "main": "index.js",
   "scripts": {
@@ -15,5 +15,8 @@
     "patch-package": "^8.0.0",
     "portfinder": "^1.0.32"
   },
-  "bin": "./index.js"
+  "bin": {
+    "proxy": "./index.js"
+  },
+  "devDependencies": {}
 }

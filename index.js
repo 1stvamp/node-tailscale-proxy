@@ -19,6 +19,7 @@ const target = process.argv[2];
 const domain = (new URL(target)).hostname;
 
 proxy.on('proxyReq', (proxyReq, req, res, options) => {
+  console.log(`[@1stvamp/proxy] Rewriting Host header to ${domain}`)
   proxyReq.setHeader('Host', domain);
 });
 proxy.on('error', (err) => {
@@ -34,6 +35,7 @@ portfinder.getPort((err, port) => {
 
   server.listen(port);
 
+  console.log(`[@1stvamp/proxy] Proxying ${target} => 127.0.0.1:${port} => tailscale serve`);
   const ts = spawn('tailscale', ['serve', port.toString()]);
   ts.stdout.on('data', (data) => {
     console.log(`[tailscale] ${data}`);
