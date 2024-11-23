@@ -4,11 +4,16 @@
   "description": "Proxy any URL via Tailscale Serve",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "patch-package",
+    "patch-package": "patch-package"
   },
   "author": "Wes Mason <wes@1stvamp.org>",
   "license": "MIT",
   "dependencies": {
-    "node-http-proxy": "^0.0.3"
-  }
+    "http-proxy": "^1.18.1",
+    "patch-package": "^8.0.0",
+    "portfinder": "^1.0.32"
+  },
+  "bin": "./index.js"
 }
