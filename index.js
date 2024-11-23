@@ -35,7 +35,7 @@ portfinder.getPort((err, port) => {
 
   server.listen(port);
 
-  console.log(`[@1stvamp/proxy] Proxying ${target} => 127.0.0.1:${port} => tailscale serve`);
+  console.log(`[@1stvamp/proxy] Proxying ${target} <=> 127.0.0.1:${port} <=> tailscale serve`);
   const ts = spawn('tailscale', ['serve', port.toString()]);
   ts.stdout.on('data', (data) => {
     console.log(`[tailscale] ${data}`);
